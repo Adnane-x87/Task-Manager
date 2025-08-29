@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
+
+    <style>
+        body{
+            background-color: #1A2A80;
+  font-family: "Ubuntu", sans-serif;
+
+
+  
+        }
+        .tasks-table{
+            background-color: white;
+            width: 60%;
+            /* height: 500px; */
+            margin-top: 130px;
+        }
+        button.circular{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            line-height: 0;
+            cursor: pointer;
+        }
+        button{
+            border: none;
+            font-size: 20px;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+        }
+        .task{
+            display: flex;
+            background-color: #DBE4C9;
+            padding: 4px;
+            border-bottom: solid black 1px;
+            transition: box-shadow 0.2s ;
+        }
+        .task:hover{
+            box-shadow:0px 3px 15px rgba(97, 97, 97, 0.843) ;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <!-- tasks table -->
+         <div class="tasks-table">
+            <div style="width: 100%;text-align:center;background-color: #7A85C1;color: white;padding-top: 8px;padding-bottom: 8px;">
+                <h1 style="display: inline;">My tasks</h1>
+                <button id="lb" class="circular" style="float: right; background-color: white;margin-right:10px;"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <div id="tas" style="padding: 20px;">
+                <div class="task">
+                    <div style="width: 70%;">
+                        <h2>reading a book </h2>
+                        <div>
+                            <span><strong>10/10/2030</strong><i class="fa-solid fa-calendar-days"></i></span>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; width:20% ;"> 
+                        <button class="circular" style="background-color: red; color: white;"><i class="fa-solid fa-trash"></i></button>
+                        <button class="circular" style="background-color: green; color: white;"><i class="fa-solid fa-check"></i></button>
+                        <button class="circular" style="background-color: blue; color: white;"><i class="fa-solid fa-pen-to-square"></i></button>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
+</div>
+</body>
+<script src="./main.js"></script>
+</html> 
