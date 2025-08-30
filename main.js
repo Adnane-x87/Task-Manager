@@ -17,7 +17,8 @@ let tasks = [
 ]
 function pageTask(){
     document.getElementById("tas").innerHTML="";
-
+    let index = 0
+    let edit = 0
 for(task of tasks){
     let content =
     `
@@ -28,13 +29,14 @@ for(task of tasks){
                         </div>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; width:20% ;"> 
-                        <button class="circular" style="background-color: red; color: white;"><i class="fa-solid fa-trash"></i></button>
+                        <button onclick="deleteTask(${index})" class="circular" style="background-color: red; color: white;"><i class="fa-solid fa-trash"></i></button>
                         <button class="circular" style="background-color: green; color: white;"><i class="fa-solid fa-check"></i></button>
-                        <button class="circular" style="background-color: blue; color: white;"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button onclick="ediTtask(${index})" class="circular" style="background-color: blue; color: white;"><i class="fa-solid fa-pen-to-square"></i></button>
                     </div>
                 </div>
     `
 document.getElementById("tas").innerHTML+=content
+index++
 }
 }
 pageTask()
@@ -51,3 +53,20 @@ document.getElementById("lb").addEventListener("click",function(){
      tasks.push(taskObj)
      pageTask()
 })
+
+function deleteTask(index){
+    let ts = tasks[index]
+   let isConfirm = confirm("Are you sure you want to remove " + ts.title +" ?")
+   if(isConfirm){
+     tasks.splice(index,1) 
+      pageTask()
+
+   }
+
+}
+function ediTtask(index){
+    let ts = tasks[index]
+    let newTaskname =prompt("Add a new task name",ts.title)
+    ts.title =newTaskname
+       pageTask()
+}
