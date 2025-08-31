@@ -22,7 +22,7 @@ function pageTask(){
 for(task of tasks){
     let content =
     `
-           <div class="task"><div style="width: 70%;">
+           <div class="task ${task.isDone ? 'done':''}"><div style="width: 70%;">
                         <h2>${task.title} </h2>
                         <div>
                             <span><strong>${task.date}</strong><i class="fa-solid fa-calendar-days"></i></span>
@@ -30,7 +30,14 @@ for(task of tasks){
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; width:20% ;"> 
                         <button onclick="deleteTask(${index})" class="circular" style="background-color: red; color: white;"><i class="fa-solid fa-trash"></i></button>
-                        <button class="circular" style="background-color: green; color: white;"><i class="fa-solid fa-check"></i></button>
+                         ${task.isDone ? `
+                                     <button  onclick="completeTask(${index})" class="circular" style="background-color: #E62727; color: white;"><i class="fa-solid fa-xmark"></i></button>
+
+                            ` : ` 
+                        
+                            <button  onclick="completeTask(${index})" class="circular" style="background-color: green; color: white;"><i class="fa-solid fa-check"></i></button>
+
+                            `}
                         <button onclick="ediTtask(${index})" class="circular" style="background-color: blue; color: white;"><i class="fa-solid fa-pen-to-square"></i></button>
                     </div>
                 </div>
@@ -69,4 +76,14 @@ function ediTtask(index){
     let newTaskname =prompt("Add a new task name",ts.title)
     ts.title =newTaskname
        pageTask()
+}
+function completeTask(index){
+      let ts = tasks[index]
+      if(ts.isDone){
+         ts.isDone = false
+      }else{
+        ts.isDone = true
+      }
+     
+      pageTask()
 }
